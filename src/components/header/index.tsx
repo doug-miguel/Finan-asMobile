@@ -24,7 +24,12 @@ export default function Header() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>Bem vindo {userModel.name}!</Text>
+      <View style={styles.containerName}>
+        <Text style={styles.nameLogo}>
+          {userModel.name.substr(0, 1).toLocaleUpperCase()}
+        </Text>
+        <Text style={styles.name}>Bem vindo {userModel.name}!</Text>
+      </View>
       <TouchableOpacity onPress={logout}>
         <Text style={styles.logOut}>Sair</Text>
       </TouchableOpacity>
@@ -40,6 +45,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#238CB2",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  containerName: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  nameLogo: {
+    backgroundColor: "aqua",
+    paddingHorizontal: 12,
+    paddingVertical:10,
+    marginLeft: 10,
   },
   name: {
     fontSize: 18,
