@@ -36,6 +36,10 @@ export default function CreateLogin() {
     }
   }
 
+  function handleCancel() {
+    navigation.navigate("Login", {} as any);
+  }
+
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       <Text style={styles.containerTitle}>Cadastrar-se</Text>
@@ -44,7 +48,7 @@ export default function CreateLogin() {
         <TextInput
           onChangeText={(event) => setName(event)}
           style={styles.input}
-          placeholder="Digite seu email"
+          placeholder="Digite seu nome"
         />
         <Text style={styles.titleInput}>Email</Text>
         <TextInput
@@ -62,6 +66,9 @@ export default function CreateLogin() {
         {error && <Text style={styles.textError}>{error?.message}</Text>}
         <TouchableOpacity style={styles.buttonLogin} onPress={handleLogin}>
           <Text style={styles.buttonLoginText}>Cadastrar-se</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonCancel} onPress={handleCancel}>
+          <Text style={styles.buttonLoginText}>Cancelar</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -108,6 +115,14 @@ const styles = StyleSheet.create({
   },
   buttonLogin: {
     backgroundColor: "#238CB2",
+    borderRadius: 10,
+    width: "75%",
+    padding: 15,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  buttonCancel: {
+    backgroundColor: "#ab2929",
     borderRadius: 10,
     width: "75%",
     padding: 15,
