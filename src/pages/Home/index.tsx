@@ -9,6 +9,7 @@ export default function Home() {
     <View style={styles.container}>
       <Header />
       <Navigate />
+      <View style={styles.containerView}></View>
       <Footer />
     </View>
   );
@@ -16,7 +17,12 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 30,
     flex: 1,
+    paddingTop: 30,
+    backgroundColor: "#238CB2",
+  },
+  containerView: {
+    flex: 8,
+    backgroundColor: "#fff",
   },
 });

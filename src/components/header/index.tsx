@@ -22,12 +22,19 @@ export default function Header() {
     navigation.navigate("Login", {} as any);
   }
 
+  function EditProfile() {
+    //@ts-ignore
+    navigation.navigate("EditProfile", {} as any);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.containerName}>
-        <Text style={styles.nameLogo}>
-          {userModel.name.substr(0, 1).toLocaleUpperCase()}
-        </Text>
+        <TouchableOpacity onPress={EditProfile} style={styles.buttonNameLogo}>
+          <Text style={styles.nameLogo}>
+            {userModel?.name?.substr(0, 1).toLocaleUpperCase()}
+          </Text>
+        </TouchableOpacity>
         <Text style={styles.name}>Bem vindo {userModel.name}!</Text>
       </View>
       <TouchableOpacity onPress={logout}>
@@ -52,11 +59,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  nameLogo: {
+  buttonNameLogo: {
     backgroundColor: "aqua",
-    paddingHorizontal: 12,
-    paddingVertical:10,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderTopWidth: 1,
+    borderRadius: 50,
     marginLeft: 10,
+  },
+  nameLogo: {
+    paddingHorizontal: 12,
+    paddingVertical: 10,
   },
   name: {
     fontSize: 18,

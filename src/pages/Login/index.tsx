@@ -32,7 +32,7 @@ export default function Login() {
       body: JSON.stringify({ email, password }),
     });
     const data = await ApiFetch.json();
-    if (data.token) {
+    if (data?.token) {
       setUserData(data);
       navigation.navigate("Home", {} as any);
     } else {
